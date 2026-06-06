@@ -144,3 +144,18 @@ O processo de scraping envolve barreiras de infraestrutura e engenharia de softw
 3. **Páginas Renderizadas via JavaScript:**
    * *O problema:* Diversos sites modernos carregam seus dados via Client-Side Rendering (CSR). Se o script fizesse o parse rápido antes da execução do Javascript, o resultado vinha vazio.
    * *A solução:* Identificamos no Buscapé que os dados essenciais para montagem rápida da tela já vinham encapsulados de forma estática nos containers do HTML principal, permitindo o parse com a biblioteca BeautifulSoup sem requisições adicionais de renderizadores mais lentos como o Selenium.
+
+---
+
+## 6. Diretrizes Éticas e Termos de Uso
+
+A raspagem de dados deve sempre ser conduzida com responsabilidade ética e jurídica. Para este projeto, as seguintes diretrizes éticas e de conformidade foram adotadas:
+
+1. **Respeito ao Arquivo `robots.txt`:**
+   * O arquivo `robots.txt` do Buscapé foi consultado para garantir que a rota de pesquisa pública (`/search`) não possuía restrições explícitas de desautorização (*Disallow*) para agentes de busca de fins acadêmicos.
+2. **Prevenção de Sobrecarga do Servidor (Cortesia de Rede):**
+   * O script foi desenvolvido para realizar uma consulta pontual de página única, limitando o tráfego gerado. Em raspagens de maior escala, é indispensável o uso de intervalos dinâmicos de tempo (`time.sleep`) entre requisições consecutivas para simular a navegação humana e não comprometer a estabilidade do servidor do e-commerce (evitando ataques de negação de serviço acidentais).
+3. **Conformidade com a LGPD (Privacidade de Dados):**
+   * A coleta limitou-se exclusivamente a dados públicos, genéricos e comerciais (nomes de aparelhos e valores monetários ofertados a qualquer visitante). Nenhum dado pessoal, cadastral ou sensível de usuários ou vendedores foi coletado, garantindo conformidade com a Lei Geral de Proteção de Dados (LGPD).
+4. **Finalidade Estritamente Acadêmica:**
+   * Este projeto possui finalidade puramente educacional e ilustrativa para o desenvolvimento da disciplina universitária, não sendo utilizado para fins comerciais ou concorrência desleal.
